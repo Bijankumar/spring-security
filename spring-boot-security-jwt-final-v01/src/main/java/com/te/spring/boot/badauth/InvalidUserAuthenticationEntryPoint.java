@@ -1,0 +1,25 @@
+package com.te.spring.boot.badauth;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.stereotype.Component;
+
+/*
+ * It's a normal class to send a JSON response if user is not logged in!
+ */
+@Component
+public class InvalidUserAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
+	@Override
+	public void commence(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException authException) throws IOException, ServletException {
+		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized user!");
+	}
+
+}

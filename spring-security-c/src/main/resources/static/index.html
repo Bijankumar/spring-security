@@ -1,0 +1,15 @@
+<html>
+<h1>SIMPLE HTML PAGE!</h1>
+<h3>By default this page is not public. What we need is anyone trying to access the apis should atleast be able to see
+	this page without any need of authentication.</h3>
+	
+<p>		http	.authorizeRequests()
+				.antMatchers("/", "index", "/css/*", "/js/*")
+				.permitAll()
+				.anyRequest()
+				.authenticated()
+				.and()
+				.httpBasic();
+</p>
+<h3>Using this we can make certain resources as public, easily accessible without any authentication.</h3>
+</html>
